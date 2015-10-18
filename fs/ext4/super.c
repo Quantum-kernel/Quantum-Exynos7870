@@ -415,9 +415,13 @@ static void ext4_handle_error(struct super_block *sb, char* buf)
 		smp_wmb();
 		sb->s_flags |= MS_RDONLY;
 	}
-	if (test_opt(sb, ERRORS_PANIC))
+	if (test_opt(sb, ERRORS_PANIC)) {
+		if (EXT4_SB(sb)->s_journal &&
+		  !(EXT4_SB(sb)->s_journal->j_flags & JBD2_REC_ERR))
+			return;
 		panic("EXT4(%s:%s\n",
 			sb->s_id, buf?buf:"no message)");
+	}
 }
 
 #define ext4_error_ratelimit(sb)					\
