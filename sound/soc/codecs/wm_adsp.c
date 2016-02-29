@@ -1285,7 +1285,7 @@ static int wm_coeff_put_acked(struct snd_kcontrol *kctl,
 	struct soc_bytes_ext *bytes_ext =
 		(struct soc_bytes_ext *)kctl->private_value;
 	struct wm_coeff_ctl *ctl = bytes_ext_to_ctl(bytes_ext);
-	unsigned int val = ucontrol->value.integer.value[0];
+	unsigned int val = ucontrol->value.enumerated.item[0];
 	int ret;
 
 	if (val == 0)
@@ -1400,7 +1400,7 @@ static int wm_coeff_get_acked(struct snd_kcontrol *kcontrol,
 	 * the same event number again to the firmware). We therefore return 0,
 	 * meaning "no event" so valid event numbers will always be a change
 	 */
-	ucontrol->value.integer.value[0] = 0;
+	ucontrol->value.enumerated.item[0] = 0;
 
 	return 0;
 }
@@ -3350,7 +3350,7 @@ int wm_adsp2_preloader_get(struct snd_kcontrol *kcontrol,
 	struct snd_soc_codec *codec = snd_soc_kcontrol_codec(kcontrol);
 	struct wm_adsp *dsp = snd_soc_codec_get_drvdata(codec);
 
-	ucontrol->value.integer.value[0] = dsp->preloaded;
+	ucontrol->value.enumerated.item[0] = dsp->preloaded;
 
 	return 0;
 }
@@ -3368,9 +3368,9 @@ int wm_adsp2_preloader_put(struct snd_kcontrol *kcontrol,
 
 	snprintf(preload, ARRAY_SIZE(preload), "DSP%u Preload", mc->shift);
 
-	dsp->preloaded = ucontrol->value.integer.value[0];
+	dsp->preloaded = ucontrol->value.enumerated.item[0];
 
-	if (ucontrol->value.integer.value[0])
+	if (ucontrol->value.enumerated.item[0])
 		snd_soc_dapm_force_enable_pin(dapm, preload);
 	else
 		snd_soc_dapm_disable_pin(dapm, preload);
