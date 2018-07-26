@@ -361,6 +361,7 @@ static struct trace_kprobe *find_trace_kprobe(const char *event,
 static int
 enable_trace_kprobe(struct trace_kprobe *tk, struct ftrace_event_file *file)
 {
+	struct event_file_link *link = NULL;
 	int ret = 0;
 
 	if (file) {
@@ -385,6 +386,19 @@ enable_trace_kprobe(struct trace_kprobe *tk, struct ftrace_event_file *file)
 		else
 			ret = enable_kprobe(&tk->rp.kp);
 	}
+
+	if (ret) {
+		if (file) {
+			/* Notice the if is true on not WARN() */
+			if (!WARN_ON_ONCE(!link))
+				list_del_rcu(&link->list);
+			kfree(link);
+			tk->tp.flags &= ~TP_FLAG_TRACE;
+		} else {
+			tk->tp.flags &= ~TP_FLAG_PROFILE;
+		}
+	}
+>>>>>>> e448fbb42a2... tracing: Quiet gcc warning about maybe unused link variable
  out:
 	return ret;
 }
