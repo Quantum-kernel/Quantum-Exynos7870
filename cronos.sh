@@ -37,6 +37,7 @@ export $CR_ARCH
 ##########################################
 # Device specific Variables [SM-J710F]
 CR_CONFG_J710F=exynos7870-j7xelte_defconfig
+CR_DTSFILES_J710F="exynos7870-j7xelte_eur_open_00.dtb exynos7870-j7xelte_eur_open_01.dtb exynos7870-j7xelte_eur_open_02.dtb exynos7870-j7xelte_eur_open_03.dtb exynos7870-j7xelte_eur_open_04.dtb"
 CR_VARIANT_J710F=J7xelte
 ##########################################
 
