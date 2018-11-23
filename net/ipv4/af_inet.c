@@ -436,7 +436,6 @@ int inet_release(struct socket *sock)
 			timeout = sk->sk_lingertime;
 #ifdef CONFIG_KNOX_NCM
         /* START_OF_KNOX_NPA */
-        knox_collect_metadata(sock);
         /* END_OF_KNOX_NPA */
 #endif
 		sock->sk = NULL;
