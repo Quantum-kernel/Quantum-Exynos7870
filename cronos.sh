@@ -66,7 +66,7 @@ BUILD_ZIMAGE()
 	echo "----------------------------------------------"
 	echo " "
 	echo "Building zImage for $CR_VARIANT"	
-	export LOCALVERSION=-$CR_NAME-$CR_VERSION-$CR_VARIANT-$CR_DATE
+	export LOCALVERSION=-$CR_NAME-$CR_VERSION-$CR_VARIANT
 	make  $CR_CONFG
 	make -j$CR_JOBS
 	echo " "
