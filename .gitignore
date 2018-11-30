@@ -7352,3 +7352,15 @@ net/netfilter/xt_oneshot.o
 scripts/basic/.bin2c.cmd
 security/tima_uevent/.tima_uevent.o.cmd
 security/tima_uevent/tima_uevent.o
+firmware/melfas_tk/mhs204g_on7xlte.fw
+firmware/melfas_tk/mhs204g_on7xlte.fw.gen.S
+firmware/tsp_synaptics/td4300_on7xelte.fw
+firmware/tsp_synaptics/td4300_on7xelte.fw.gen.S
+firmware/tsp_synaptics/td4300_on7xelte_recovery.fw
+firmware/tsp_synaptics/td4300_on7xelte_recovery.fw.gen.S
+firmware/tsp_synaptics/td4310_on7xelte.fw
+firmware/tsp_synaptics/td4310_on7xelte.fw.gen.S
+firmware/tsp_synaptics/td4310_on7xelte_recovery.fw
+firmware/tsp_synaptics/td4310_on7xelte_recovery.fw.gen.S
+security/selinux/av_permissions.h
+security/selinux/flask.h
