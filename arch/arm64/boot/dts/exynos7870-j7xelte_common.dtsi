@@ -43,21 +43,6 @@
 			clock-frequency = <26000000>;
 		};
 	};
-	firmware {
-	   android {
-		 compatible = "android,firmware";
-		  fstab {
-			 compatible = "android,fstab";
-			 system {
-				  compatible = "android,system";
-				  dev = "/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM";
-				  type = "ext4";
-				  mnt_flags = "ro,barrier=1,discard";
-				  fsmgr_flags = "wait,verify";
-				 };
-		   };
-	  };
-	};
 
 	reserved-memory {
 		#address-cells = <2>;
@@ -243,7 +228,7 @@
 		pinctrl-6 = <&sd0_clk_fast_slew_rate_6x>;
 		slot@0 {
 			reg = <0>;
-			bus-width = <16>;
+			bus-width = <8>;
 		};
 	};
 
@@ -278,7 +263,7 @@
 		pinctrl-0 = <&sd1_clk &sd1_cmd &sd1_bus1 &sd1_bus4>;
 		slot@0 {
 			reg = <0>;
-			bus-width = <8>;
+			bus-width = <4>;
 		};
 	};
 
@@ -1306,7 +1291,7 @@
 			reg = <0x2D>;
 			id = <0>; /* matching sensor id */
 			fnum = <2>; /* F1_9 : fimc-is-param.h */
-			setfile = "setB";
+			setfile = "default";
 		};
 	};
 
