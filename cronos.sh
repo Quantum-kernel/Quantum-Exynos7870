@@ -26,7 +26,7 @@ CR_VERSION=V1.0
 CR_NAME=Quantum_Kernel
 CR_JOBS=5
 CR_ANDROID=o
-CR_PLATFORM=8.1.1
+CR_PLATFORM=8.0.0
 CR_ARCH=arm64
 CR_DATE=$(date +%Y%m%d)
 # Init build
